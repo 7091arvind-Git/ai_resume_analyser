@@ -5,10 +5,42 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-st.set_page_config(page_title="AI Resume Analyzer")
+# Page Config
+st.set_page_config(
+    page_title="AI Resume Analyzer",
+    page_icon="📄",
+    layout="centered"
+)
 
-st.title("AI Resume Analyzer")
+# Title
+st.title("🚀 AI Resume Analyzer")
+st.caption(
+    "Analyze resumes, detect skills and match them with job descriptions"
+)
 
+# Sidebar
+with st.sidebar:
+    st.header("About")
+
+    st.write("""
+    AI Resume Analyzer
+
+    Built using:
+    • Python
+    • Streamlit
+    • PDFPlumber
+    • Scikit-Learn
+    • TF-IDF
+    • Cosine Similarity
+    """)
+
+    st.markdown("---")
+
+    st.write(
+        "Upload a resume and compare it with a job description."
+    )
+
+# Inputs
 uploaded_file = st.file_uploader(
     "Upload Resume (PDF)",
     type=["pdf"]
@@ -19,7 +51,7 @@ job_description = st.text_area(
     height=200
 )
 
-
+# Function to extract text
 def extract_text(pdf_file):
     text = ""
 
@@ -33,12 +65,13 @@ def extract_text(pdf_file):
     return text.lower()
 
 
+# Main App Logic
 if uploaded_file:
 
-    # Extract resume text
+    # Extract Resume Text
     resume_text = extract_text(uploaded_file)
 
-    # Load skills
+    # Load Skills
     skills_df = pd.read_csv("skills.csv")
     skill_list = skills_df["skill"].tolist()
 
@@ -53,28 +86,37 @@ if uploaded_file:
         (len(found_skills) / len(skill_list)) * 100
     )
 
-    st.subheader("Resume Score")
+    st.subheader("📊 Resume Score")
     st.progress(score)
     st.write(f"Score: {score}%")
 
+    if score < 40:
+        st.error("Resume needs significant improvement.")
+
+    elif score < 70:
+        st.warning("Good resume, but more skills can be added.")
+
+    else:
+        st.success("Strong resume profile.")
+
     # Detected Skills
-    st.subheader("Detected Skills")
+    st.subheader("✅ Detected Skills")
 
     if found_skills:
         for skill in found_skills:
             st.success(skill)
 
-    # Missing Skills
+    # Recommended Skills
     missing_skills = list(
         set(skill_list) - set(found_skills)
     )
 
-    st.subheader("Missing Skills")
+    st.subheader("🎯 Recommended Skills To Learn")
 
     for skill in missing_skills:
-        st.warning(skill)
+        st.info(f"Learn {skill}")
 
-    # Job Description Match Score
+    # Job Match Score
     if job_description:
 
         vectorizer = TfidfVectorizer()
@@ -90,11 +132,11 @@ if uploaded_file:
 
         match_score = int(similarity * 100)
 
-        st.subheader("Job Match Score")
+        st.subheader("💼 Job Match Score")
         st.progress(match_score)
         st.write(f"Match Score: {match_score}%")
 
-        st.subheader("Suggestions")
+        st.subheader("📌 Suggestions")
 
         if match_score < 50:
             st.error(
