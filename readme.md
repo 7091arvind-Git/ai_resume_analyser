@@ -1,97 +1,130 @@
-# 🚀 AI Resume Analyzer
+🚀 AI Resume Analyzer
 
 An AI-powered Resume Analyzer built using Python, Streamlit, and NLP techniques. The application analyzes resumes, detects skills, compares them with job descriptions, and provides a match score along with improvement suggestions.
 
-## ✨ Features
+🌐 Live Demo
 
-* 📄 Upload Resume (PDF)
-* 🔍 Extract Resume Text Automatically
-* ✅ Detect Technical Skills
-* 📊 Resume Score Analysis
-* 🎯 Recommended Skills to Learn
-* 💼 Job Description Matching
-* 🤖 TF-IDF Based Similarity Scoring
-* 📈 Resume Improvement Suggestions
-* 🌐 Deployed on Streamlit Cloud
+Try the deployed application:
 
-## 🛠️ Tech Stack
+👉 https://7091arvind-git-ai-resume-analyser-app-ervxkv.streamlit.app/
 
-* Python
-* Streamlit
-* Pandas
-* PDFPlumber
-* Scikit-Learn
-* TF-IDF Vectorization
-* Cosine Similarity
+✨ Features
 
-## 📂 Project Structure
+📄 Upload Resume (PDF)
 
-```text
+🔍 Extract Resume Text Automatically
+
+✅ Detect Technical Skills
+
+📊 Resume Score Analysis
+
+🎯 Recommended Skills to Learn
+
+💼 Job Description Matching
+
+🤖 TF-IDF Based Similarity Scoring
+
+📈 Resume Improvement Suggestions
+
+🌐 Deployed on Streamlit Cloud
+
+🛠️ Tech Stack
+
+Python
+
+Streamlit
+
+Pandas
+
+PDFPlumber
+
+Scikit-Learn
+
+TF-IDF Vectorization
+
+Cosine Similarity
+
+📂 Project Structure
+
 ai_resume_analyser/
 │
 ├── app.py
 ├── skills.csv
 ├── requirements.txt
-├── README.md
-```
+└── README.md
 
-## ⚙️ Installation
+⚙️ Installation
 
 Clone the repository:
 
-```bash
 git clone https://github.com/7091arvind-Git/ai_resume_analyser.git
-```
 
-Move into project directory:
+Move into the project directory:
 
-```bash
 cd ai_resume_analyser
-```
 
 Install dependencies:
 
-```bash
 pip install -r requirements.txt
-```
 
 Run the application:
 
-```bash
 streamlit run app.py
-```
 
-## 🚀 How It Works
+🚀 How It Works
 
-1. Upload a PDF Resume.
-2. Resume text is extracted automatically.
-3. Skills are detected using a predefined skills database.
-4. Resume Score is calculated.
-5. Paste a Job Description.
-6. TF-IDF and Cosine Similarity calculate the Job Match Score.
-7. Recommendations and feedback are generated.
+Upload a PDF Resume.
 
-## 📸 Screenshot
+Resume text is extracted automatically using PDFPlumber.
 
-Add your deployed application screenshot here.
+Technical skills are detected using a predefined skills database.
 
-## 🔮 Future Enhancements
+A resume score is calculated based on the detected skills and resume content.
 
-* AI-powered Resume Feedback
-* Resume Ranking System
-* Multiple Resume Comparison
-* Advanced NLP Skill Extraction
-* Course Recommendations
-* Resume Keyword Optimization
+Paste a Job Description.
 
-## 👨‍💻 Author
+TF-IDF Vectorization converts the resume and job description text into numerical vectors.
 
-**Arvind Yadav**
+Cosine Similarity calculates the Job Match Score.
+
+The application provides recommended skills and improvement suggestions.
+
+🧠 NLP Used
+
+This project uses traditional NLP techniques for resume and job-description analysis.
+
+Text Extraction: PDFPlumber extracts text from PDF resumes.
+
+TF-IDF: Converts text into numerical feature vectors.
+
+Cosine Similarity: Measures similarity between resume content and the job description.
+
+Skill Extraction: Matches resume content against a predefined technical skills database.
+
+📸 Screenshot
+
+Add a screenshot of the deployed application here.
+
+🔮 Future Enhancements
+
+AI-powered Resume Feedback
+
+Resume Ranking System
+
+Multiple Resume Comparison
+
+Advanced NLP Skill Extraction
+
+Course Recommendations
+
+Resume Keyword Optimization
+
+👨‍💻 Author
+
+Arvind Yadav
 
 CSE (AI & ML) Student
 
 GitHub: https://github.com/7091arvind-Git
-
----
 
 ⭐ If you found this project useful, consider giving it a star.
